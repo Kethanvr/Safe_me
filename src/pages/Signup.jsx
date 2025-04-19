@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
 import GoogleSignInButton from '../components/GoogleSignInButton';
-import AuthCard from '../components/AuthCard';
+import AuthCard from '../components/AuthCard'; // Import AuthCard
 
 export default function Signup() {
   const [email, setEmail] = useState('');
@@ -58,13 +58,12 @@ export default function Signup() {
   };
 
   return (
-    <AuthCard title="Create Account">
+    <AuthCard title="Create Account"> // Use AuthCard here
       {error && (
-        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded">
+        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded shadow-sm animate-pulse">
           <p>{error}</p>
         </div>
       )}
-      
       <form onSubmit={handleSubmit} className="space-y-4">
         <InputField
           type="text"
@@ -135,21 +134,18 @@ export default function Signup() {
           {isLoading ? 'Creating Account...' : 'Sign Up'}
         </Button>
       </form>
-      
       <div className="my-6 flex items-center">
         <div className="flex-grow border-t border-gray-300"></div>
         <span className="mx-4 text-gray-500 text-sm">or</span>
         <div className="flex-grow border-t border-gray-300"></div>
       </div>
-      
       <GoogleSignInButton onClick={handleGoogleSignup} />
-      
       <p className="mt-8 text-center text-gray-600">
         Already have an account?{' '}
         <Link to="/login" className="text-purple-600 hover:text-purple-800 font-medium transition-colors">
           Log in
         </Link>
       </p>
-    </AuthCard>
+    </AuthCard> // End AuthCard
   );
 }

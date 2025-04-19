@@ -47,7 +47,7 @@ export default function Login() {
   return (
     <AuthCard title="Welcome Back">
       {error && (
-        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded">
+        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded shadow-sm animate-pulse">
           <p>{error}</p>
         </div>
       )}

@@ -1,12 +1,13 @@
 // AuthCard component for wrapping authentication forms
 export default function AuthCard({ children, title }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 to-indigo-50 px-4 py-8">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
-        <div className="p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
-            <p className="text-gray-600 mt-2">SafeMe - Your Discreet Safety Companion</p>
+    <div className="min-h-screen bg-gradient-to-br from-purple-200 via-indigo-100 to-indigo-300 flex items-center justify-center py-8 px-2">
+      <div className="w-full max-w-md">
+        <div className="backdrop-blur-lg bg-white/70 border border-white/40 rounded-3xl shadow-2xl p-8 transition-all duration-300">
+          <div className="text-center mb-6">
+            <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-600 via-indigo-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg tracking-tight">
+              {title}
+            </h1>
           </div>
           {children}
         </div>
