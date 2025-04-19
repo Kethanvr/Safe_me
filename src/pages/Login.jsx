@@ -42,104 +42,79 @@ function Login() {
       setIsLoading(false);
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-primary tracking-tight">
-            SafeMe
-          </h1>
-          <p className="text-muted-foreground mt-2">
-            Your discreet safety companion
-          </p>
-        </div>
-        
-        <Card className="backdrop-blur-md bg-white/90 border-border/40 shadow-xl">
-          <CardHeader>
-            <CardTitle className="text-2xl font-semibold text-center">Welcome Back</CardTitle>
-            <CardDescription className="text-center">Sign in to your account to continue</CardDescription>
-          </CardHeader>
-          <CardContent>
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-white">
+      <div className="w-full max-w-sm">
+        <Card className="border border-[#dbdbdb] rounded-sm shadow-none">
+          <CardContent className="pt-8 px-8 pb-4">
+            <div className="text-center mb-8">
+              <h1 className="text-[#262626] text-5xl font-['Instagram Sans Script'] mb-4">
+                SaveMe
+              </h1>
+            </div>
+            
             {error && (
-              <div className="mb-6 p-3 bg-destructive/10 border-l-4 border-destructive text-destructive rounded-md text-sm animate-pulse">
+              <div className="mb-4 text-sm text-red-500 text-center">
                 <p>{error}</p>
               </div>
             )}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <div className="relative">
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="name@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="pl-10"
-                  />
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                    </svg>
-                  </div>
-                </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-2">
+              <div>
+                <Input
+                  id="email"
+                  type="text"
+                  placeholder="Phone number, username, or email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="bg-[#fafafa] text-xs h-9 border-[#dbdbdb] rounded-sm px-2 focus:border-[#a8a8a8]"
+                />
               </div>
               
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
-                  <Link to="/forgot-password" className="text-sm text-primary hover:underline">
-                    Forgot password?
-                  </Link>
-                </div>
-                <div className="relative">
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="pl-10"
-                  />
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  </div>
-                </div>
+              <div>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="bg-[#fafafa] text-xs h-9 border-[#dbdbdb] rounded-sm px-2 focus:border-[#a8a8a8]"
+                />
               </div>
               
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button 
+                type="submit" 
+                className="w-full h-8 mt-4 bg-[#0095f6] hover:bg-[#1877f2] text-sm font-semibold rounded-lg" 
+                disabled={isLoading}
+              >
                 {isLoading ? (
                   <div className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Signing in...
+                    Logging in...
                   </div>
                 ) : (
-                  'Sign in'
+                  'Log in'
                 )}
               </Button>
             </form>
             
-            <div className="relative my-6">
+            <div className="relative my-5">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-muted"></div>
+                <div className="w-full border-t border-[#dbdbdb]"></div>
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+              <div className="relative flex justify-center text-xs">
+                <span className="bg-white px-4 text-[#8e8e8e] font-semibold">OR</span>
               </div>
             </div>
             
-            <Button
-              variant="outline"
+            <button
               type="button"
-              className="w-full"
+              className="w-full flex items-center justify-center text-[#385185] font-semibold text-sm mb-4"
               onClick={handleGoogleLogin}
               disabled={isLoading}
             >
@@ -149,21 +124,31 @@ function Login() {
                 <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
                 <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
               </svg>
-              Continue with Google
-            </Button>
+              Log in with Google
+            </button>
+            
+            <div className="text-center">
+              <Link to="/forgot-password" className="text-xs text-[#00376b]">
+                Forgot password?
+              </Link>
+            </div>
           </CardContent>
-          <CardFooter className="flex flex-col items-center justify-center gap-2 border-t p-6">
-            <p className="text-center text-sm text-muted-foreground">
-              Don&apos;t have an account?{' '}
-              <Link to="/signup" className="text-primary font-medium hover:underline">
-                Create one
+        </Card>
+        
+        <Card className="border border-[#dbdbdb] rounded-sm shadow-none mt-3">
+          <CardContent className="py-5 px-8 text-center">
+            <p className="text-sm">
+              Don't have an account?{' '}
+              <Link to="/signup" className="text-[#0095f6] font-semibold">
+                Sign up
               </Link>
             </p>
-            <p className="text-xs text-muted-foreground">
-              By signing in, you agree to our Terms of Service and Privacy Policy.
-            </p>
-          </CardFooter>
+          </CardContent>
         </Card>
+        
+        <div className="text-center mt-4 text-xs text-[#8e8e8e]">
+          By signing in, you agree to our Terms of Service and Privacy Policy.
+        </div>
       </div>
     </div>
   );
