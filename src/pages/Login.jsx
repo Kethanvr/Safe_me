@@ -47,11 +47,10 @@ export default function Login() {
   return (
     <AuthCard title="Welcome Back">
       {error && (
-        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded shadow-sm animate-pulse">
+        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded shadow-sm animate-pulse text-sm">
           <p>{error}</p>
         </div>
       )}
-      
       <form onSubmit={handleSubmit} className="space-y-4">
         <InputField
           type="email"
@@ -67,7 +66,6 @@ export default function Login() {
             </svg>
           }
         />
-        
         <InputField
           type="password"
           name="password"
@@ -82,33 +80,18 @@ export default function Login() {
             </svg>
           }
         />
-        
-        <div className="flex justify-end">
-          <Link to="/forgot-password" className="text-sm text-purple-600 hover:text-purple-800 transition-colors">
-            Forgot password?
-          </Link>
-        </div>
-        
-        <Button 
-          type="submit" 
-          variant="primary" 
-          fullWidth 
-          disabled={isLoading}
-        >
+        <Button type="submit" variant="primary" fullWidth disabled={isLoading}>
           {isLoading ? 'Logging in...' : 'Log In'}
         </Button>
       </form>
-      
       <div className="my-6 flex items-center">
         <div className="flex-grow border-t border-gray-300"></div>
         <span className="mx-4 text-gray-500 text-sm">or</span>
         <div className="flex-grow border-t border-gray-300"></div>
       </div>
-      
       <GoogleSignInButton onClick={handleGoogleLogin} />
-      
-      <p className="mt-8 text-center text-gray-600">
-        Don't have an account?{' '}
+      <p className="mt-8 text-center text-gray-600 text-sm">
+        Don&apos;t have an account?{' '}
         <Link to="/signup" className="text-purple-600 hover:text-purple-800 font-medium transition-colors">
           Sign up
         </Link>

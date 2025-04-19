@@ -8,7 +8,7 @@ export default function Button({
   disabled = false,
   icon = null
 }) {
-  const baseStyle = "flex items-center justify-center py-3 px-6 rounded-lg font-medium transition-all duration-300";
+  const baseStyle = "flex items-center justify-center py-3 px-6 rounded-xl font-semibold text-base transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2";
   
   const variants = {
     primary: "bg-purple-600 hover:bg-purple-700 text-white shadow-md hover:shadow-lg",
@@ -29,7 +29,7 @@ export default function Button({
         ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
       `}
     >
-      {icon && <span className="mr-2">{icon}</span>}
+      {icon && <span className="mr-2 flex items-center">{icon}</span>}
       {children}
     </button>
   );

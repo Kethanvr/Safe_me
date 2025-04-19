@@ -58,9 +58,9 @@ export default function Signup() {
   };
 
   return (
-    <AuthCard title="Create Account"> // Use AuthCard here
+    <AuthCard title="Create Account">
       {error && (
-        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded shadow-sm animate-pulse">
+        <div className="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded shadow-sm animate-pulse text-sm">
           <p>{error}</p>
         </div>
       )}
@@ -77,10 +77,8 @@ export default function Signup() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            
           }
         />
-        
         <InputField
           type="email"
           name="email"
@@ -95,7 +93,6 @@ export default function Signup() {
             </svg>
           }
         />
-        
         <InputField
           type="password"
           name="password"
@@ -110,7 +107,6 @@ export default function Signup() {
             </svg>
           }
         />
-        
         <InputField
           type="password"
           name="confirm-password"
@@ -125,13 +121,7 @@ export default function Signup() {
             </svg>
           }
         />
-        
-        <Button 
-          type="submit" 
-          variant="primary" 
-          fullWidth 
-          disabled={isLoading}
-        >
+        <Button type="submit" variant="primary" fullWidth disabled={isLoading}>
           {isLoading ? 'Creating Account...' : 'Sign Up'}
         </Button>
       </form>
@@ -141,12 +131,12 @@ export default function Signup() {
         <div className="flex-grow border-t border-gray-300"></div>
       </div>
       <GoogleSignInButton onClick={handleGoogleSignup} />
-      <p className="mt-8 text-center text-gray-600">
+      <p className="mt-8 text-center text-gray-600 text-sm">
         Already have an account?{' '}
         <Link to="/login" className="text-purple-600 hover:text-purple-800 font-medium transition-colors">
           Log in
         </Link>
       </p>
-    </AuthCard> // End AuthCard
+    </AuthCard>
   );
 }
