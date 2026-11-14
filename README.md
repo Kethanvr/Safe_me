@@ -1,12 +1,19 @@
-# React + Vite
+# SaveMe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SaveMe is a React interface prototype for a personal-safety dashboard. It includes sign-in and sign-up routes, a protected dashboard, and interface sections for safety status, check-ins, emergency contacts, settings, and help resources.
 
-Currently, two official plugins are available:
+The app uses Firebase Authentication and Firestore. The dashboard should be treated as a prototype UI; this repository does not establish that emergency dispatch, location monitoring, or other real-world safety services are available. Do not rely on it in an emergency.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Run locally
 
-## Expanding the ESLint configuration
+    npm install
+    npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Use a development Firebase project and review its Authentication and Firestore configuration before testing. Do not publish production credentials or commit local configuration.
+
+## Scripts
+
+- `npm run dev` starts Vite.
+- `npm run build` creates a production bundle.
+- `npm run lint` runs ESLint.
+- `npm run preview` serves a production build locally.
